@@ -1,6 +1,6 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" data-theme="cupcake">
 
 <head>
     <title>Django Tailwind</title>
@@ -10,10 +10,50 @@
     {% tailwind_css %}
 </head>
 
-<body class="bg-gray-50 text-black font-serif leading-normal tracking-normal">
-    <h1>Hello Django!</h1>
-    {% block content %}
-    {% endblock %}
+<body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
+
+    <header class="sticky top-0 z-50">
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="max-w-4xl mx-auto px-4 flex w-full">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="-1"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 3</a></li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-ghost text-xl">NurbekTech</a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a>Сабақтар</a></li>
+                        <li><a>Біз жайлы</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <a class="btn">+7 747 778 10 04</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4">
+        <aside>
+            <p>Copyright © - All right reserved by ACME Industries Ltd</p>
+        </aside>
+    </footer>
 </body>
 
 </html>
