@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # tailwind
     "tailwind",
     "ui",
+    "tinymce",
     # өзіміздің apps
     "apps.users",
     "apps.pages",
