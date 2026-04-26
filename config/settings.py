@@ -32,8 +32,6 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost", cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    # custom admin
-    "unfold",
     # django apps
     "django.contrib.admin",
     "django.contrib.auth",
@@ -44,8 +42,6 @@ INSTALLED_APPS = [
     # tailwind
     "tailwind",
     "ui",
-    # extension apps
-    "treebeard",
     # өзіміздің apps
     "apps.users",
     "apps.pages",

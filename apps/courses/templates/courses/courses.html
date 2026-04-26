@@ -1,5 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>COurses</h1>
+
+<!-- Тақырып -->
+<section class="bg-base-200 py-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold mb-3">Сабақтар</h1>
+        <p class="text-base-content/60">Категорияны таңдаңыз</p>
+    </div>
+</section>
+
+<!-- Категориялар -->
+<section class="py-12">
+    <div class="max-w-4xl mx-auto px-4">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+            {% for category in categories %}
+            <a href="{% url 'category_detail' category.slug %}"
+                class="card bg-base-200 shadow-sm hover:shadow-md transition-shadow">
+                <div class="card-body">
+                    <h2 class="card-title">{{ category.name }}</h2>
+                    <p class="text-sm text-base-content/60">{{ category.description }}</p>
+                    <div class="card-actions justify-end mt-2">
+                        <span class="badge badge-primary">{{ category.course_count }} курс</span>
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <div class="col-span-3">
+                <p class="text-center text-base-content/60">Әзірше категория жоқ</p>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
 {% endblock %}
