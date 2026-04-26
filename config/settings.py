@@ -32,6 +32,8 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost", cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    # custom admin
+    "unfold",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
