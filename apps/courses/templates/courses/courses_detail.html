@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="bg-base-200 py-12">
+    <div class="max-w-4xl mx-auto px-4">
+
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs text-sm mb-6">
+            <ul>
+                <li><a href="{% url 'courses:courses' %}">Сабақтар</a></li>
+                <li>{{ category.name }}</li>
+            </ul>
+        </div>
+
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-3">{{ category.name }}</h1>
+            <p class="text-base-content/60">{{ category.description }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-12">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+            {% for course in courses %}
+            <a href="{{ course.get_absolute_url }}"
+                class="card bg-base-200 shadow-sm hover:shadow-md transition-shadow">
+                <div class="card-body">
+                    <h2 class="card-title">{{ course.name }}</h2>
+                    <p class="text-sm text-base-content/60">{{ course.description }}</p>
+                    <div class="card-actions justify-end mt-2">
+                        <span class="badge badge-primary">{{ course.course_count }} сабақ</span>
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <p class="col-span-3 text-center text-base-content/60">
+                Әзірше сабақ жоқ
+            </p>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

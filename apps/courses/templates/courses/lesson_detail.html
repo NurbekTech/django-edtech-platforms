@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="bg-base-200 py-12">
+    <div class="max-w-4xl mx-auto px-4">
+
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs text-sm mb-6">
+            <ul>
+                <li><a href="{% url 'courses:courses' %}">Сабақтар</a></li>
+                <li><a href="{{ lesson.course.category.get_absolute_url }}">{{ lesson.course.category.name }}</a></li>
+                <li><a href="{{ lesson.course.get_absolute_url }}">{{ lesson.course.name }}</a></li>
+                <li>{{ lesson.title }}</li>
+            </ul>
+        </div>
+
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-3">{{ lesson.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="py-12">
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="prose max-w-none">
+            {{ lesson.content }}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

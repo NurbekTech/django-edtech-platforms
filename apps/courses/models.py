@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
@@ -11,8 +12,11 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    def course_count(self):
+    def courses_count(self):
         return self.courses.count()
+
+    def get_absolute_url(self):
+        return reverse("courses:courses_detail", kwargs={"slug": self.slug})
 
 
 class Course(models.Model):
@@ -27,6 +31,9 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse("courses:course_detail", kwargs={"slug": self.slug})
 
 
 class Lesson(models.Model):
@@ -43,3 +50,6 @@ class Lesson(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("courses:lesson_detail", kwargs={"slug": self.slug})
