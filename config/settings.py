@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # tailwind
     "tailwind",
     "ui",
-    "tinymce",
+    "ckeditor",
     # өзіміздің apps
     "apps.users",
     "apps.pages",
@@ -139,5 +139,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": "full",
+        "height": 400,
+    }
+}

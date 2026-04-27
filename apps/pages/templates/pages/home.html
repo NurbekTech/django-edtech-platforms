@@ -3,13 +3,17 @@
 {% block content %}
 <div class="hero bg-base-200 min-h-full">
     <div class="hero-content text-center">
-        <div class="max-w-md">
-            <h1 class="text-5xl font-bold">Hello there</h1>
+        <div class="max-w-2xl">
+            <h1 class="text-5xl font-bold">Білімің — болашағың</h1>
             <p class="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                quasi. In deleniti eaque aut repudiandae et a id nisi.
+                NurbekTech — робототехника, бағдарламалау және электроника
+                бағыттары бойынша онлайн сабақтар платформасы.
+                Кез келген жастағы адамдарға арналған қызықты және
+                түсінікті курстар.
             </p>
-            <button class="btn btn-primary">Get Started</button>
+            <a href="{% url 'courses:courses' %}" class="btn btn-primary btn-lg">
+                Сабақтарды көру
+            </a>
         </div>
     </div>
 </div>
